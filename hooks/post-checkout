@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+set -o pipefail
+set -u
+
+echo "Current directory:"
+pwd
+
+FILE=.git/index.lock
+if [ -f "$FILE" ]; then
+    echo "$FILE exists - deleting"
+    rm -f $FILE
+else
+    echo "$FILE does not exist - not deleting"
+fi
