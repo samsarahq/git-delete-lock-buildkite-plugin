@@ -3,7 +3,7 @@ set -e
 set -o pipefail
 set -u
 
-DIRECTORY = /var/lib/buildkite-agent/builds/$BUILDKITE_AGENT_NAME/$BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG
+DIRECTORY=/var/lib/buildkite-agent/builds/$BUILDKITE_AGENT_NAME/$BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG
 
 if [ -d $DIRECTORY ]
 then
