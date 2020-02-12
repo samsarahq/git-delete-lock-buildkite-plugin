@@ -18,5 +18,5 @@ then
         echo "$FILE does not exist - not deleting"
     fi
 else
-    echo "$DIRECTORY not found - skipping hook.
+    echo "$DIRECTORY not found - skipping hook."
 fi
