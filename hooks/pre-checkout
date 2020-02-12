@@ -3,7 +3,8 @@ set -e
 set -o pipefail
 set -u
 
-echo "Current directory:"
+echo "Changing to repo directory"
+cd /var/lib/buildkite-agent/builds/$BUILDKITE_AGENT_NAME/$BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG
 pwd
 
 FILE=.git/index.lock
