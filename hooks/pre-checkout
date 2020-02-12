@@ -3,14 +3,20 @@ set -e
 set -o pipefail
 set -u
 
-echo "Changing to repo directory"
-cd /var/lib/buildkite-agent/builds/$BUILDKITE_AGENT_NAME/$BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG
-pwd
+DIRECTORY = /var/lib/buildkite-agent/builds/$BUILDKITE_AGENT_NAME/$BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG
 
-FILE=.git/index.lock
-if [ -f "$FILE" ]; then
-    echo "$FILE exists - deleting"
-    rm -f $FILE
+if [ -d $DIRECTORY ]
+then
+    echo "Changing to repo directory"
+    cd $DIRECTORY
+    
+    FILE=.git/index.lock
+    if [ -f "$FILE" ]; then
+        echo "$FILE exists - deleting"
+        rm -f $FILE
+    else
+        echo "$FILE does not exist - not deleting"
+    fi
 else
-    echo "$FILE does not exist - not deleting"
+    echo "$DIRECTORY not found - skipping hook.
 fi
